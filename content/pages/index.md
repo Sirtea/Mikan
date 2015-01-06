@@ -4,3 +4,5 @@ It just maps markdown files to pages.
 As a feature, Mikan also generates a `/sitemap.xml` from content folder.
 
 For more information, take a look at the [documentation](/docs).
+
+You can also see our [getting started](/getting/started).
