@@ -1,4 +1,4 @@
-from bottle import Bottle, view, abort, response
+from bottle import Bottle, view, abort, response, static_file
 from misaka import html
 import os
 
@@ -8,6 +8,7 @@ TEMPLATE_DIR = os.path.abspath(os.path.join(CURRENT_DIR, 'views'))
 PAGES_DIR = os.path.abspath(os.path.join(CURRENT_DIR, '../content/pages'))
 ERRORS_DIR = os.path.abspath(os.path.join(CURRENT_DIR, '../content/errors'))
 SNIPPET_DIR = os.path.abspath(os.path.join(CURRENT_DIR, '../content/snippets'))
+STATIC_DIR = os.path.abspath(os.path.join(CURRENT_DIR, 'static'))
 
 
 def load_snippet(snippet):
@@ -42,6 +43,11 @@ def sitemap():
                 urls.append(os.path.join(prefix, file))
     response.content_type = 'application/xml'
     return {'urls': urls}
+
+
+@app.get('/static/<filename:path>')
+def send_static(filename):
+    return static_file(filename, root=STATIC_DIR)
 
 
 @app.get('/')

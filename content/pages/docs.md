@@ -28,3 +28,12 @@ as `{{!snippet('header')}}`.
 
 For more info just look at the template documentation.
 The template engine is the one shipped with [bottle](http://bottlepy.org/).
+
+### Static content
+
+Although static content should be served by a more capable web server,
+mikan offers the possibility to do this. Please evaluate the risks involved.
+
+All static content will be served from `mikan/static/` folder, and the url
+should begin with `/static/`. So, for example, a `style.css` file could be
+in `mikan/static/style.css` and should be included at the url `/static/style.css`
