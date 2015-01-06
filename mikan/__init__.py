@@ -5,7 +5,17 @@ import os
 app = Bottle()
 CURRENT_DIR = os.path.dirname(__file__)
 TEMPLATE_DIR = os.path.abspath(os.path.join(CURRENT_DIR, 'views'))
-CONTENT_DIR = os.path.abspath(os.path.join(CURRENT_DIR, '../content'))
+PAGES_DIR = os.path.abspath(os.path.join(CURRENT_DIR, '../content/pages'))
+ERRORS_DIR = os.path.abspath(os.path.join(CURRENT_DIR, '../content/errors'))
+
+
+@app.error(404)
+@view('error', template_lookup=[TEMPLATE_DIR])
+def error404(error):
+    path = ERRORS_DIR + '/404.md'
+    return {
+        'content': html(open(path).read().decode('utf-8')),
+    }
 
 
 @app.get('/')
@@ -14,7 +24,7 @@ CONTENT_DIR = os.path.abspath(os.path.join(CURRENT_DIR, '../content'))
 @app.get('<channel:path>/<page>')
 @view('layout', template_lookup=[TEMPLATE_DIR])
 def show_page(channel='', page='index'):
-    path = CONTENT_DIR + channel + '/' + page + '.md'
+    path = PAGES_DIR + channel + '/' + page + '.md'
     try:
         return {
             'content': html(open(path).read().decode('utf-8')),
