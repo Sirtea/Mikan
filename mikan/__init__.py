@@ -1,4 +1,4 @@
-from bottle import Bottle, view, abort
+from bottle import Bottle, view, abort, response
 from misaka import html
 import os
 
@@ -26,6 +26,22 @@ def error404(error):
         'snippet': load_snippet,
         'content': html(open(path).read().decode('utf-8')),
     }
+
+
+@app.get('/sitemap.xml')
+@view('sitemap', template_lookup=[TEMPLATE_DIR])
+def sitemap():
+    urls = []
+    for dirpath, dirnames, filenames in os.walk(PAGES_DIR):
+        prefix = dirpath != PAGES_DIR and dirpath[len(PAGES_DIR):] or '/'
+        for file in filenames:
+            if file.endswith('.md'):
+                file = file[:-3]
+                if file.endswith('index'):
+                    file = file[:-5]
+                urls.append(os.path.join(prefix, file))
+    response.content_type = 'application/xml'
+    return {'urls': urls}
 
 
 @app.get('/')
