@@ -46,7 +46,7 @@ The main responsabilities for a publisher is to mantain snippets, error pages an
 Snippets are created by a designer, and found in `content/snippets/` folder.
 There are as many snippets as the designer decided to include. Just update as needed.
 
-Error pages are in `content/errors/` folder. Ath this moment, the only error caught is the 404 error.
+Error pages are in `content/errors/` folder. At this moment, the only error caught is the 404 error.
 
 The remaining content are pages and are found in `content/pages/` folder, so put your `.md` files in a path relative to here.
 

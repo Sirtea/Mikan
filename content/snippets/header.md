@@ -1,5 +1,4 @@
-![Mikan](/static/mikan.jpg "Mikan")
+# [Mikan](/)
 
-# Mikan
-
-## A simplistic approach to content publishing
+A simplistic approach  
+to content publishing

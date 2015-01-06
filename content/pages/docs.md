@@ -1,4 +1,4 @@
-### Adding content
+## Adding content
 
 Mikan does not use a database engine to render pages.
 It just maps paths to markdown files in disk.
@@ -12,7 +12,7 @@ Error pages are rendered from `content/errors/` folder, for example from `404.md
 
 Snippets are rendered from `content/snippets/` folder, for example from `header.md` file.
 
-### Modifying layout
+## Modifying layout
 
 Mikan uses a template to render content on it.
 It can be located at `mikan/views/layout.tpl`.
@@ -29,7 +29,7 @@ as `{{!snippet('header')}}`.
 For more info just look at the template documentation.
 The template engine is the one shipped with [bottle](http://bottlepy.org/).
 
-### Static content
+## Static content
 
 Although static content should be served by a more capable web server,
 mikan offers the possibility to do this. Please evaluate the risks involved.

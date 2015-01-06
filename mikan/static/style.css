@@ -1,0 +1,41 @@
+body {
+    background-color: #FFC040;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+#header {
+    border-style: solid;
+    border-width: 2px;
+    height: 150px;
+    background-color: #FFFFFF;
+    background-image: url('/static/mikan.jpg');
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+#header p {
+    color: #FF7F00;
+}
+
+#content p {
+    text-align: justify;
+}
+
+#content h2 {
+    text-decoration: underline;
+}
+
+#content pre {
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 25px;
+}
+
+#footer {
+    text-align: center;
+}
